@@ -1,0 +1,35 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: rgb(255, 249, 238);
+  background-image: url("/trame.svg");
+}
+
+p {
+  margin: 0;
+}
+
+@media all and (min-width: 320px) and (max-width: 864px) {
+  body {
+    background-color: rgb(255, 249, 238);
+    background-size: 600%;
+  }
+}
+
+@media all and (max-width: 320px) {
+  :root {
+    display: none;
+  }
+}

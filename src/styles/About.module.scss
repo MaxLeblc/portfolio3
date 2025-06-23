@@ -1,0 +1,216 @@
+$black-color: #212121;
+$red-color: #f15454;
+// $bg-color: rgb(172, 255, 227);
+$bg-color: rgb(255, 249, 238);
+
+@keyframes sliderLeft {
+    0% {
+        transform: translateX(50%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes sliderRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+.container {
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .intro {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 2rem;
+        text-align: start;
+        color: $black-color;
+        padding: 12rem 4rem 1rem 4rem;
+
+        &>h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 54px;
+            line-height: 4rem;
+            margin: 0;
+            margin-bottom: 2rem;
+        }
+
+        &>:nth-child(2) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .slidersA {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 84px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: $black-color;
+        display: flex;
+        gap: 2rem;
+
+        &>div {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &>.sliderLeft {
+            animation: sliderLeft 19620ms linear infinite;
+        }
+    }
+
+    .slidersB {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 84px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: $black-color;
+        display: flex;
+        gap: 2rem;
+
+        &>div {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &>.sliderRight {
+            animation: sliderRight 19620ms linear infinite;
+            margin-top: -2.5rem;
+        }
+    }
+
+    .about {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 2rem;
+        text-align: start;
+        color: $black-color;
+        padding: 0 4rem 0 4rem;
+
+        &>p {
+            margin-bottom: 1rem;
+        }
+
+        &>:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+
+    .links {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10rem;
+        margin-bottom: 10rem;
+
+        &>img {
+            width: 30%;
+        }
+
+        &>a {
+            text-decoration: inherit;
+            margin: 4rem 1rem;
+            font-size: 2rem;
+            color: $black-color;
+        }
+
+        &>a:hover {
+            color: $red-color;
+        }
+
+    }
+}
+
+@media all and (max-width: 1280px) {
+    .container {
+        .intro {
+            font-size: 18px;
+
+            &>h1 {
+                font-size: 48px;
+                line-height: 3.5rem;
+            }
+        }
+
+        .about {
+            font-size: 18px;
+        }
+    }
+}
+
+@media all and (min-width: 864px) and (max-width: 1080px) {
+    .container {
+        width: 40rem;
+
+        .intro {
+            font-size: 16px;
+            font-weight: 700;
+
+            &>h1 {
+                font-size: 42px;
+                line-height: 3rem;
+            }
+        }
+
+        .about {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 864px) {
+    .container {
+        width: 25rem;
+
+        .intro {
+            font-size: 16px;
+            font-weight: 700;
+            padding-top: 6rem;
+
+            &>h1 {
+                font-size: 34px;
+                line-height: 2.5rem;
+            }
+        }
+
+        .slidersA {
+            display: none;
+        }
+
+        .slidersB {
+            &>.sliderRight {
+                margin-top: -2rem;
+            }
+
+            display: none;
+        }
+
+        .about {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .links {
+            justify-content: center;
+            padding: 0;
+
+            &>img {
+                display: none;
+            }
+        }
+    }
+}

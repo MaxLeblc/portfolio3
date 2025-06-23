@@ -1,0 +1,416 @@
+$black-color: #212121;
+$red-color: #f15454;
+// $bg-color: rgb(172, 255, 227);
+$bg-color: rgb(255, 249, 238);
+$mobile-color: rgb(255, 249, 238);
+
+@mixin flexMid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes bubble {
+
+    0%,
+    100% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes tilt {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.container {
+    @include flexMid;
+    flex-direction: column;
+    width: 50%;
+    margin: 5rem 0;
+    animation: fade linear;
+    animation-timeline: view();
+
+    &>span:nth-child(1) {
+        height: 12rem;
+    }
+
+    &>span:nth-child(3) {
+        width: 55rem;
+        border: $black-color solid 1px;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+    }
+
+    &>p {
+        display: flex;
+        justify-content: center;
+        font-family: "Archivo", sans-serif;
+        font-weight: 800;
+        font-size: 64px;
+        letter-spacing: 2rem;
+        margin-left: 2rem;
+        color: $black-color;
+        animation: bounce linear;
+        animation-timeline: view();
+    }
+
+    .containerView {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .view1,
+        .view2,
+        .view3,
+        .view4,
+        .view5,
+        .view6 {
+            @include flexMid;
+            align-items: flex-end;
+            width: 15rem;
+            height: 15rem;
+            border-radius: 0.5rem;
+            background-image: url("/stack/css.png");
+            background-size: cover;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+            border: $black-color solid 2px;
+            margin: 4rem;
+
+            .description {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100%;
+                height: 100px;
+                background-color: $bg-color;
+                border-radius: 0 0 .5rem .5rem;
+                font-family: "Archivo", sans-serif;
+                font-size: 18px;
+                transform: translateY(30px);
+                transition: .5s;
+                opacity: 0;
+
+                &>p:nth-child(1) {
+                    font-weight: bold;
+                }
+
+                .button {
+                    width: 100%;
+
+                    &>a {
+                        margin: 0 1rem;
+
+                        &:hover {
+                            font-weight: 600;
+                        }
+
+                        &:-webkit-any-link {
+                            color: $red-color;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .view1 {
+            animation: bubble 8s ease-in-out infinite;
+            background-image: url("/prods/meme.png");
+
+            &:hover {
+                background-image: url("/prods/meme2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .view2 {
+            animation: bubble 10s ease-in-out infinite;
+            background-image: url("/prods/popcorn.png");
+
+            &:hover {
+                background-image: url("/prods/popcorn2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .view3 {
+            animation: bubble 12s ease-in-out infinite;
+            background-image: url("/prods/note.png");
+
+            &:hover {
+                background-image: url("/prods/note2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .view4 {
+            animation: bubble 7s ease-in-out infinite;
+            background-image: url("/prods/cauldron.png");
+
+            &:hover {
+                background-image: url("/prods/cauldron2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .view5 {
+            animation: bubble 9s ease-in-out infinite;
+            background-image: url("/prods/touittaire.png");
+
+            &:hover {
+                background-image: url("/prods/touittaire2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .view6 {
+            animation: bubble 11s ease-in-out infinite;
+            background-image: url("/prods/buddy.png");
+
+            &:hover {
+                background-image: url("/prods/buddy2.png");
+                transition: 1s;
+                background-color: $red-color;
+                z-index: 100;
+
+                &>.description {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .containerEye {
+        animation: none;
+
+        &>p {
+            display: flex;
+            font-family: "Archivo", sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: .2rem;
+            white-space: nowrap;
+            color: $black-color;
+            gap: 1rem;
+            margin: 4rem 0;
+
+            .eye {
+                width: 2rem;
+                scale: 2;
+                margin-left: 2rem;
+
+                &>:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 1280px) {
+    .container {
+        &>p:nth-child(2) {
+            font-size: 52px;
+        }
+
+        &>span:nth-last-child(2) {
+            width: 48rem;
+        }
+
+        .containerEye {
+            p {
+                font-size: 18px;
+                letter-spacing: 0.1rem;
+            }
+        }
+    }
+}
+
+@media all and (min-width: 864px) and (max-width: 1080px) {
+    .container {
+
+        &>span:nth-child(3) {
+            width: 100%;
+        }
+
+        .containerView {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .containerEye {
+            p {
+                flex-direction: column;
+                align-items: center;
+                font-size: 16px;
+                letter-spacing: 0.1rem;
+                flex-direction: column;
+
+                &>:nth-child(1) {
+                    display: none;
+                }
+
+                .eye {
+                    scale: 3;
+                    margin-left: 0;
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 864px) {
+    .container {
+        animation: none;
+        margin-top: 0;
+
+        &>p:nth-child(2) {
+            font-size: 38px;
+        }
+
+        &>span:nth-last-child(2) {
+            width: 28rem;
+        }
+
+        &>span:nth-child(3) {
+            width: 100%;
+        }
+
+        &>p {
+            animation: none;
+        }
+
+        .containerView {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+
+            .view1,
+            .view2,
+            .view3,
+            .view4,
+            .view5,
+            .view6 {
+                margin: 1rem;
+
+                .description {
+                    background-color: $mobile-color;
+                }
+            }
+
+        }
+
+        .containerEye {
+            p {
+                flex-direction: column;
+                align-items: center;
+                font-family: "Archivo Black", sans-serif;
+                font-size: 14px;
+                letter-spacing: 0.1rem;
+                white-space: wrap;
+                line-height: 1.5rem;
+                flex-direction: column;
+
+                &>:nth-child(1) {
+                    display: none;
+                }
+
+                .eye {
+                    scale: 3;
+                    margin-left: 0;
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,180 @@
+$black-color: #212121;
+$red-color: #f15454;
+// $bg-color: rgb(172, 255, 227);
+$bg-color: rgb(255, 249, 238);
+$mobile-color: rgb(255, 249, 238);
+
+@mixin flexMid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes reveal {
+    0% {
+        transform: scale(.1) translateY(50rem);
+    }
+
+    30% {
+        transform: scale(.2) translateY(30rem);
+    }
+
+    45% {
+        transform: scale(1);
+    }
+}
+
+.container {
+    @include flexMid;
+    flex-direction: column;
+    width: 50%;
+    margin: 5rem 0 10rem 0;
+    animation: fade linear;
+    animation-timeline: view();
+
+    &>span:nth-child(1) {
+        height: 12rem;
+    }
+
+    &>span:nth-child(3) {
+        width: 55rem;
+        border: $black-color solid 1px;
+        margin-top: 1rem;
+    }
+
+    &>p {
+        font-family: "Archivo", sans-serif;
+        font-weight: 800;
+        font-size: 64px;
+        letter-spacing: 2rem;
+        margin-left: 2rem;
+        color: $black-color;
+        animation: bounce linear;
+        animation-timeline: view();
+    }
+
+    .stack {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background-color: $bg-color;
+        animation: reveal linear;
+        animation-timeline: view();
+    }
+
+    .card {
+        @include flexMid;
+        width: 10rem;
+        height: 10rem;
+        border: $black-color solid 2px;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
+        border-radius: .5rem;
+        scale: .9;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+            border: $red-color solid 2px;
+            background-color: $red-color;
+        }
+
+        .description {
+            font-family: "Archivo", sans-serif;
+            font-weight: 600;
+            color: $black-color;
+
+            &>img {
+                width: 6rem;
+                color: $black-color;
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1280px) {
+    .container {
+        &>p:nth-child(2) {
+            font-size: 52px;
+        }
+
+        &>span:nth-child(3) {
+            width: 100%;
+        }
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 864px) {
+    .container {
+        animation: none;
+        margin-top: 0;
+
+        &>p:nth-child(2) {
+            font-size: 38px;
+        }
+
+        &>span:nth-child(3) {
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        &>p {
+            animation: none;
+        }
+
+        &>img {
+            display: none;
+        }
+
+        .stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            animation: none;
+            position: unset;
+            background-color: $mobile-color;
+        }
+
+        .card {
+            padding: 0%;
+            scale: .8;
+        }
+    }
+}
